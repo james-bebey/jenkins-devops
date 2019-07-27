@@ -1,6 +1,6 @@
-FROM jenkins/jenkins:latest
+FROM jenkins/jenkins:lts
 
-LABEL maintainer "Gary A. Stafford <garystafford@rochester.rr.com>"
+LABEL maintainer "james Bebey Jr - Adapted from Gary A. Stafford <garystafford@rochester.rr.com>"
 ENV REFRESHED_AT 2018-04-25
 
 # set variables - *** CHANGE ME ***

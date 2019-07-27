@@ -1,17 +1,19 @@
 FROM jenkins/jenkins:lts
 
-LABEL maintainer "Gary A. Stafford <garystafford@rochester.rr.com>"
-ENV REFRESHED_AT 2018-04-19
+LABEL maintainer "James Bebey Jr - Adapted from Gary A. Stafford <garystafford@rochester.rr.com>"
+ENV REFRESHED_AT 2019-07-27
 
 # set variables - *** CHANGE ME ***
 ARG docker_compose_version="1.21.0"
 ARG packer_version="1.2.2"
 ARG terraform_version="0.12.5"
+ARG ansible_version="2.8.3"
 ARG timezone="America/New_York"
 
 ENV DOCKER_COMPOSE_VERSION $docker_compose_version
 ENV PACKER_VERSION $packer_version
 ENV TERRAFORM_VERSION $terraform_version
+ENV ANSIBLE_VERSION $ansible_version
 ENV TIMEZONE $timezone
 
 # switch to install packages via apt
@@ -69,6 +71,10 @@ RUN set +x \
   && rm -rf terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
   && mv terraform /bin
 
+# install Ansible
+RUN set +x \
+  && pip3 install ansible==${ANSIBLE_VERSION}
+
 # install Jenkins plugins
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN set +x \
@@ -79,7 +85,7 @@ RUN set +x \
   && echo ''; echo '*** INSTALLED SOFTWARE VERSIONS ***';echo ''; \
   cat /etc/*release; python3 --version; \
   docker version; docker-compose version; \
-  git --version; jq --version; pip3 --version; aws --version; \
+  git --version; jq --version; pip3 --version; aws --version; ansible --version; \
   packer version; terraform version; echo '';
 
 RUN set +x \

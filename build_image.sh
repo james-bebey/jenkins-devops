@@ -5,12 +5,12 @@
 
 set -e
 
-IMAGE_TAG="2018.04.19"
+IMAGE_TAG="2019.07.27"
 
 # ensure latest jenkins image is pulled and used as base images...
-docker pull jenkins/jenkins:latest
+docker pull jenkins/jenkins:lts
 
 # build new image
 docker build --file Dockerfile \
   --no-cache \
-  -t garystafford/jenkins-devops:${IMAGE_TAG} .
+  -t jbebey/jenkins-devops:${IMAGE_TAG} .

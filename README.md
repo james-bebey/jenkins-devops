@@ -10,15 +10,15 @@ The `Jenkins DevOps Toolkit` image is based on the latest [`jenkins/jenkins:late
 
 ## Installed Tools
 
-Based on latest packages as of 2018.04.19:
+Based on latest packages as of 2018.04.19 (plus terraform and jenkins as of 2019.07.27):
 
 - [AWS CLI](https://aws.amazon.com/cli/) v1.15.4
 - [Docker CE](https://docker.com/) v18.03.0-ce
 - [Docker Compose](https://docs.docker.com/compose/) v1.21.0
 - [Git](https://git-scm.com/) v2.11.0
 - [HashiCorp Packer](https://www.packer.io/) v1.2.2
-- [HashiCorp Terraform](https://www.terraform.io/) v0.11.7
-- [Jenkins](https://jenkins.io/) v2.116
+- [HashiCorp Terraform](https://www.terraform.io/) v0.12.5
+- [Jenkins](https://jenkins.io/) which?
 - [jq](https://stedolan.github.io/jq/) v1.5.1
 - [OpenNTPD](http://www.openntpd.org/) (time sync)
 - [pip3](https://pip.pypa.io/en/stable/#) v9.0.1
@@ -50,7 +50,7 @@ jq-1.5-1-a5b5cbe
 pip 9.0.1 from /usr/lib/python3/dist-packages (python 3.5)
 aws-cli/1.15.4 Python/3.5.3 Linux/4.9.87-linuxkit-aufs botocore/1.10.4
 Packer v1.2.2
-Terraform v0.11.7
+Terraform v0.12.5
 ```
 
 ## Architecture
